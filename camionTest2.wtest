@@ -1,5 +1,5 @@
-import cosas.*
-import camion.*
+import cosas2.*
+import camion2.*
 
 
 describe "Test camion" {
@@ -9,14 +9,20 @@ describe "Test camion" {
     bateria.cargarYDescargarMisiles()
     paqueteDeLadrillos.cambiarCantidad(80)
     embalaje.cambiarLoQueEnvuelve(paqueteDeLadrillos)
-    const cosasACaragar = []
-    camion.cargarCosas([bumblebee, arena, embalaje])
+
+    camion.cargarCosa(bumblebee)
+    camion.cargarCosa(arena)
+    camion.cargarCosa(bateria)
+    camion.cargarCosa(embalaje)
   }
   test "test peso" {
-    assert.equals(1000 + 800 + 150 + 300 + 160, camion.peso())
+    assert.equals(1000 + 800 + 140 + 300 + 160, camion.peso())
   }
-  
   test "test pesos pares" {
     assert.that(camion.todosLosPesosSonPares())
+  }
+
+  test "La cantidad total de bultos cargados en el camion es de " {
+    assert.equals(7, camion.cantidadTotalDeBultos())
   }
 }
